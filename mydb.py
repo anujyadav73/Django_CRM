@@ -1,3 +1,6 @@
+# For Creating Database in MySQL
+# This is optional, you can create database from MySQL Workbench or any other MySQL GUI tool.
+
 import mysql.connector
 
 
