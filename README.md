@@ -6,6 +6,7 @@ Welcome to DCRM, a Django-based Customer Relationship Management system. This pr
 
 - [Features](#features)
 - [Installation](#installation)
+- [Connecting MySQL with Django](#connecting-mysql-with-django)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -42,7 +43,7 @@ Welcome to DCRM, a Django-based Customer Relationship Management system. This pr
     ```sh
     pip install -r requirements.txt
 
-5. **Set up the database:**
+5. - [Connecting MySQL with Django](#connecting-mysql-with-django)
     ```sh
     python manage.py migrate
 
@@ -50,10 +51,35 @@ Welcome to DCRM, a Django-based Customer Relationship Management system. This pr
     ```sh
     python manage.py runserver
 
+# Connecting MySQL with Django
+**To connect your Django project to a MySQL database, follow these steps:**
+1. **Install MySQL server and create a database for your project.**
+2. **Install the MySQL client library:**
+    ```sh
+    pip install mysqlclient
+
+3. **Update your Django project's settings to use MySQL. Open settings.py and modify the DATABASES section:**
+    # filepath: dcrm/settings.py
+    ```sh
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'your_database_name',
+            'USER': 'your_database_user',
+            'PASSWORD': 'your_database_password',
+                'HOST': 'localhost',  # Or your database host
+                'PORT': '3306',       # Or your database port
+        }
+}
+
+4. **Apply the migrations to set up your MySQL database:**
+    ```sh
+    python manage.py migrate
+
 # Usage
-    Navigate to http://127.0.0.1:8000/ in your web browser.
-    Register a new user or log in with an existing account.
-    Add, update, or delete customer records as needed.**
+**Navigate to http://127.0.0.1:8000/ in your web browser.**
+**Register a new user or log in with an existing account.**
+**Add, update, or delete customer records as needed.**
 # Contributing
     Contributions are welcome! Please follow these steps:
 
